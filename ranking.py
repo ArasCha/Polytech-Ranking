@@ -273,10 +273,10 @@ class Semester:
 
 if __name__ == "__main__":
     
-    cookie = {
-        "logged_out_marketing_header_id":"",
-        "scolarite":""
-    }
-
-    data = Semester(number=7, cookie=cookie)
+    with open("params.json", "r") as f:
+        content_str = f.read()
+        import json
+        content_json = json.loads(content_str)
+        
+    data = Semester(number=content_json["semester"], cookie=content_json["user_cookie"])
     print(data)
