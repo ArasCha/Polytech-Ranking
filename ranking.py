@@ -192,7 +192,7 @@ class Semester:
 
         Returns HTML structure
         """
-        semesters = {5:395, 6:396, 7:458}
+        semesters = {5:395, 6:396, 7:458, 8:462}
 
         url = f"https://scolarite.polytech.univ-nantes.fr/gestnote/?fct=bulletin&maq={semesters[self.number]}&dpt=1"
         headers = {
