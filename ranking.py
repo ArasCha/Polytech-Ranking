@@ -278,5 +278,5 @@ if __name__ == "__main__":
         import json
         content_json = json.loads(content_str)
         
-    data = Semester(number=content_json["semester"], cookie=content_json["user_cookie"])
+    data = Semester(number=int(content_json["semester"]), cookie=content_json["user_cookie"])
     print(data)
