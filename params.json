@@ -1,8 +1,4 @@
 {
-    "user_cookie":
-    {
-        "logged_out_marketing_header_id":"",
-        "scolarite":""
-    },
-    "semester": 7
+    "scolarite":"",
+    "semester": 9
 }

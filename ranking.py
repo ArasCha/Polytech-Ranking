@@ -165,7 +165,7 @@ class Semester:
 
     all_marks_data: list[BeautifulSoup]
 
-    def __init__(self, number: int, cookie:dict[str, str]) -> None:
+    def __init__(self, number: int, cookie: str) -> None:
 
         assert number >= 1, "Le numéro de semestre doit être supérieur ou égal à 1"
         assert number <= 10 , "Le numéro de semestre doit être inférieur ou égal à 10"
@@ -186,13 +186,13 @@ class Semester:
 
         return [UE(data = tag) for tag in UEs_tags]
 
-    def get_data(self, cookie: dict[str, str]) -> BeautifulSoup:
+    def get_data(self, cookie: str) -> BeautifulSoup:
         """
         Gets data from the GestNote
 
         Returns HTML structure
         """
-        semesters = {5:395, 6:396, 7:458}
+        semesters = { 5: 395, 6: 396, 7: 458, 8: 462, 9: 535, 10: 536 }
 
         url = f"https://scolarite.polytech.univ-nantes.fr/gestnote/?fct=bulletin&maq={semesters[self.number]}&dpt=1"
         headers = {
@@ -204,7 +204,7 @@ class Semester:
             "sec-fetch-dest": "empty",
             "sec-fetch-mode": "cors",
             "sec-fetch-site": "same-origin",
-            "cookie": f"logged_out_marketing_header_id={cookie['logged_out_marketing_header_id']}; scolarite={cookie['scolarite']}",
+            "cookie": f"logged_out_marketing_header_id=; scolarite={cookie}",
             "Referer": "https://scolarite.polytech.univ-nantes.fr/",
             "Referrer-Policy": "strict-origin-when-cross-origin"
         }
@@ -278,5 +278,5 @@ if __name__ == "__main__":
         import json
         content_json = json.loads(content_str)
         
-    data = Semester(number=content_json["semester"], cookie=content_json["user_cookie"])
+    data = Semester(number=content_json["semester"], cookie=content_json["scolarite"])
     print(data)
