@@ -192,6 +192,7 @@ class Semester:
 
         Returns HTML structure
         """
+
         semesters = { 5: 395, 6: 396, 7: 458, 8: 462, 9: 535, 10: 536 }
 
         url = f"https://scolarite.polytech.univ-nantes.fr/gestnote/?fct=bulletin&maq={semesters[self.number]}&dpt=1"
@@ -279,4 +280,5 @@ if __name__ == "__main__":
         content_json = json.loads(content_str)
         
     data = Semester(number=content_json["semester"], cookie=content_json["scolarite"])
+
     print(data)
