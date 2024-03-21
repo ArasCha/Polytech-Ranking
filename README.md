@@ -3,7 +3,7 @@
 - `pip install -r requirements.py`
 
 - Edit the `params.json` file:
-    - 2 cookie values to get from the DevTools on the GestNote page
+    - cookie value of the "scolarite" key on the request headers sent when changing semester, to get from the DevTools's Network tab on the GestNote page
     - Number of the semester you wish
 
 - `python ranking.py`
